@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+tmp/
+backend/scripts/productos-reales.json
+*.log
+.DS_Store
