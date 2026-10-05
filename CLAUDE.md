@@ -28,3 +28,11 @@ NestJS + TypeScript + MongoDB (Mongoose) + class-validator/class-transformer. Si
 - Productos se devuelven con `id` (string), sin `_id`.
 - Conexión a Mongo por `MONGODB_URI` (`backend/.env`, nunca commitear).
 - Un commit por paso con mensaje descriptivo.
+
+## Comandos (desde `backend/`)
+- `npm install` — dependencias. Crear `backend/.env` a partir de `.env.example` (`MONGODB_URI`; `DNS_SERVERS=8.8.8.8,1.1.1.1` si falla `querySrv ECONNREFUSED`).
+- `npm run build` — compila a `dist/`. `npm run start:dev` (watch) / `npm run start:prod` — servidor en :3000.
+- `npm run e2e` — pruebas contra la API real (servidor corriendo); limpia lo que crea.
+- `npm run seed [-- archivo.json]` — carga `scripts/productos-reales.json` vía API.
+- TypeScript fijado en ^6: el CLI de Nest y ts-node no funcionan con TS 7.
+- Contrato de la API: `docs/api-contract.md`.
