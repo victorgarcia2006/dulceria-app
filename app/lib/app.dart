@@ -5,6 +5,7 @@ import 'core/dulceria_api.dart';
 import 'core/theme.dart';
 import 'features/home/home_screen.dart';
 import 'features/inventory/inventory_screen.dart';
+import 'features/sales/sales_controller.dart';
 import 'features/sales/sales_screen.dart';
 
 class DulceriaApp extends StatelessWidget {
@@ -15,9 +16,17 @@ class DulceriaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<DulceriaApi>(
-      create: (_) => api ?? DulceriaApi(),
-      dispose: (_, api) => api.close(),
+    return MultiProvider(
+      providers: [
+        Provider<DulceriaApi>(
+          create: (_) => api ?? DulceriaApi(),
+          dispose: (_, api) => api.close(),
+        ),
+        // A nivel de app: el carrito sobrevive al cambiar de pestaña.
+        ChangeNotifierProvider<SalesController>(
+          create: (context) => SalesController(context.read<DulceriaApi>()),
+        ),
+      ],
       child: MaterialApp(
         title: 'Dulcería',
         debugShowCheckedModeBanner: false,

@@ -51,6 +51,17 @@ class TodaySummary {
       );
 }
 
+/// Renglón que se manda al registrar una venta.
+class ItemVenta {
+  const ItemVenta({required this.productId, required this.quantity});
+
+  final String productId;
+  final int quantity;
+
+  Map<String, dynamic> toJson() =>
+      {'productId': productId, 'quantity': quantity};
+}
+
 /// Venta registrada (`POST /sales`); solo guardamos lo que la app muestra.
 class Sale {
   const Sale({required this.id, required this.total, required this.totalProfit});

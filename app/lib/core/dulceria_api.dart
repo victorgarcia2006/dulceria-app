@@ -25,5 +25,14 @@ class DulceriaApi {
     return TodaySummary.fromJson(json as Map<String, dynamic>);
   }
 
+  /// Registra una venta completa (todo o nada en el servidor).
+  Future<Sale> registrarVenta(List<ItemVenta> items) async {
+    final json = await _client.post(
+      '/sales',
+      body: {'items': items.map((i) => i.toJson()).toList()},
+    );
+    return Sale.fromJson(json as Map<String, dynamic>);
+  }
+
   void close() => _client.close();
 }
