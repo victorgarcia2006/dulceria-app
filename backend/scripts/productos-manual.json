@@ -1,0 +1,6 @@
+[
+  { "name": "Paleta de caramelo", "costPrice": 2.5, "salePrice": 5, "stock": 40 },
+  { "name": "Gomitas de ositos", "costPrice": 12, "salePrice": 20, "stock": 3 },
+  { "name": "Chocolate de leche", "costPrice": 8.5, "salePrice": 15, "stock": 1 },
+  { "name": "Chicle de menta", "costPrice": 0.8, "salePrice": 2, "stock": 0 }
+]
