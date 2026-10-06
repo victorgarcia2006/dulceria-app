@@ -16,7 +16,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // La pestaña se recrea cada vez que se entra, así que carga datos frescos.
     return ChangeNotifierProvider(
-      create: (context) => HomeController(context.read<DulceriaApi>())..cargar(),
+      create: (context) =>
+          HomeController(context.read<DulceriaApi>())..cargar(),
       child: const _HomeView(),
     );
   }
@@ -67,10 +68,7 @@ class _HomeView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.md),
-          StatCard(
-            etiqueta: 'Ventas de hoy',
-            valor: '${resumen.salesCount}',
-          ),
+          StatCard(etiqueta: 'Ventas de hoy', valor: '${resumen.salesCount}'),
           const SizedBox(height: AppSpacing.lg),
           _SeccionPocasExistencias(productos: c.pocasExistencias),
         ],
@@ -95,8 +93,9 @@ class _SeccionPocasExistencias extends StatelessWidget {
         if (productos.isEmpty)
           Text(
             'Todo en orden: ningún producto tiene pocas existencias.',
-            style: tema.textTheme.bodyMedium
-                ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+            style: tema.textTheme.bodyMedium?.copyWith(
+              color: tema.colorScheme.onSurfaceVariant,
+            ),
           )
         else
           for (final p in productos)
@@ -112,8 +111,9 @@ class _SeccionPocasExistencias extends StatelessWidget {
                   title: Text(p.name),
                   trailing: Text(
                     textoExistencias(p.existencias),
-                    style: tema.textTheme.titleSmall
-                        ?.copyWith(color: AppColors.warning),
+                    style: tema.textTheme.titleSmall?.copyWith(
+                      color: AppColors.warning,
+                    ),
                   ),
                 ),
               ),

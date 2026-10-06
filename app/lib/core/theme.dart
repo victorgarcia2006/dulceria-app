@@ -19,6 +19,23 @@ class AppRadius {
   static const double chip = 8;
 }
 
+/// Tamaños fijos de componentes (iconos, tarjetas, paneles).
+class AppSizes {
+  AppSizes._();
+
+  static const double iconoGrande = 48;
+  static const double alturaBarraNavegacion = 72;
+
+  /// Tarjeta de producto en la cuadrícula de Vender.
+  static const double anchoMaxTarjetaProducto = 200;
+  static const double altoTarjetaProducto = 128;
+
+  /// Panel del carrito: altura máxima de la lista, sombra y ancho del subtotal.
+  static const double altoMaxLineasCarrito = 200;
+  static const double elevacionPanel = 3;
+  static const double anchoSubtotal = 72;
+}
+
 /// Colores de marca y de estado. Los demás salen del `ColorScheme` del tema.
 class AppColors {
   AppColors._();
@@ -110,7 +127,7 @@ ThemeData buildAppTheme() {
     ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: scheme.surfaceContainer,
-      height: 72,
+      height: AppSizes.alturaBarraNavegacion,
     ),
   );
 }

@@ -81,8 +81,10 @@ void main() {
   });
 
   test('un 422 conserva el carrito y recarga los productos', () async {
-    api.errorAlVender =
-        ApiException('Ya no hay suficiente Gomita, solo quedan 1.', statusCode: 422);
+    api.errorAlVender = ApiException(
+      'Ya no hay suficiente Gomita, solo quedan 1.',
+      statusCode: 422,
+    );
     c.agregar(_gomita);
     final cargasAntes = api.cargas;
     await expectLater(c.cobrar(), throwsA(isA<ApiException>()));

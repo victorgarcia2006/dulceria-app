@@ -20,8 +20,9 @@ class StatCard extends StatelessWidget {
           children: [
             Text(
               etiqueta,
-              style: tema.textTheme.titleSmall
-                  ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+              style: tema.textTheme.titleSmall?.copyWith(
+                color: tema.colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: AppSpacing.xs),
             FittedBox(

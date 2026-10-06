@@ -93,8 +93,9 @@ class _ProductFormSheetState extends State<ProductFormSheet> {
             _editando
                 ? 'Las existencias no se editan aquí: cambian al recibir mercancía y al vender.'
                 : 'Las existencias empiezan en 0. Para tener unidades disponibles, usa «Recibir mercancía».',
-            style: tema.textTheme.bodyMedium
-                ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+            style: tema.textTheme.bodyMedium?.copyWith(
+              color: tema.colorScheme.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: AppSpacing.md),
           TextFormField(

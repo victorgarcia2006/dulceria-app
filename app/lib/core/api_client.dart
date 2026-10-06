@@ -44,7 +44,7 @@ const String kMensajeErrorServidor =
 /// Cliente HTTP mínimo: GET/POST/PATCH que devuelven JSON ya decodificado.
 class ApiClient {
   ApiClient({this._baseUrl = kApiBaseUrl, http.Client? client})
-      : _client = client ?? http.Client();
+    : _client = client ?? http.Client();
 
   final String _baseUrl;
   final http.Client _client;

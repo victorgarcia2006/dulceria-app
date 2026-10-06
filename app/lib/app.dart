@@ -51,10 +51,10 @@ class _NavegacionPrincipalState extends State<NavegacionPrincipal> {
   // Solo se construye la pestaña activa: al volver a entrar a una pestaña se
   // recrea y recarga sus datos, así nunca se ven cifras viejas.
   Widget _pantalla() => switch (_indice) {
-        0 => const HomeScreen(),
-        1 => const SalesScreen(),
-        _ => const InventoryScreen(),
-      };
+    0 => const HomeScreen(),
+    1 => const SalesScreen(),
+    _ => const InventoryScreen(),
+  };
 
   @override
   Widget build(BuildContext context) {

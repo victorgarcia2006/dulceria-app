@@ -32,10 +32,11 @@ class HomeController extends ChangeNotifier {
       ]);
       resumen = resultados[0] as TodaySummary;
       final productos = resultados[1] as List<Product>;
-      pocasExistencias = productos
-          .where((p) => p.active && p.existencias < kUmbralPocasExistencias)
-          .toList()
-        ..sort((a, b) => a.existencias.compareTo(b.existencias));
+      pocasExistencias =
+          productos
+              .where((p) => p.active && p.existencias < kUmbralPocasExistencias)
+              .toList()
+            ..sort((a, b) => a.existencias.compareTo(b.existencias));
     } catch (e) {
       error = e;
     }

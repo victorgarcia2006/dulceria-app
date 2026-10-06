@@ -22,9 +22,7 @@ class EtiquetaEstado extends StatelessWidget {
       ),
       child: Text(
         texto,
-        style: Theme.of(context)
-            .textTheme
-            .labelMedium
+        style: Theme.of(context).textTheme.labelMedium
             ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
       ),
     );

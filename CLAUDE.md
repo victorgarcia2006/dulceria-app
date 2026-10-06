@@ -43,3 +43,6 @@ NestJS + TypeScript + MongoDB (Mongoose) + class-validator/class-transformer. Si
 - Alcance congelado: solo Hoy, Vender, Inventario. Texto visible en español natural; nunca la palabra "stock" (usar "existencias", "Quedan X", "Agotado", "Recibir mercancía", "Pocas existencias").
 - Comandos (desde `app/`): `flutter pub get`, `flutter analyze`, `flutter test`, `flutter run`, `flutter build apk --debug`.
 - En Windows, el build de Android necesita `JAVA_HOME` en un JDK 17+ (p. ej. el JBR de Android Studio); con JRE 8 `sdkmanager` falla.
+- Umbral de "Pocas existencias": `kUmbralPocasExistencias` en `app/lib/core/constants.dart` (hoy 5). Es un valor provisional a ajustar tras observar el uso real; no hardcodearlo en otro lado.
+- Todo diseño sale de `app/lib/core/theme.dart` (`AppSpacing`, `AppSizes`, `AppRadius`, `AppColors`); no usar colores ni medidas sueltas en las pantallas.
+- Tráfico http plano: el APK release, con solo el permiso INTERNET, conectó por http al backend en un emulador Android 15. Aun así, al hospedar el backend conviene HTTPS; si Android llegara a bloquear http, agregar `android:usesCleartextTraffic="true"` (o un network security config limitado a ese host).

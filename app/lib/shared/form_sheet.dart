@@ -40,8 +40,9 @@ class ErrorDeFormulario extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: AppSpacing.md),
       child: Text(
         mensajeDeError(error),
-        style: tema.textTheme.bodyMedium
-            ?.copyWith(color: tema.colorScheme.error),
+        style: tema.textTheme.bodyMedium?.copyWith(
+          color: tema.colorScheme.error,
+        ),
       ),
     );
   }

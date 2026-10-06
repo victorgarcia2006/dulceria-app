@@ -23,13 +23,13 @@ class Product {
   bool get agotado => existencias <= 0;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        costPrice: (json['costPrice'] as num).toDouble(),
-        salePrice: (json['salePrice'] as num).toDouble(),
-        existencias: (json['stock'] as num).toInt(),
-        active: json['active'] as bool,
-      );
+    id: json['id'] as String,
+    name: json['name'] as String,
+    costPrice: (json['costPrice'] as num).toDouble(),
+    salePrice: (json['salePrice'] as num).toDouble(),
+    existencias: (json['stock'] as num).toInt(),
+    active: json['active'] as bool,
+  );
 }
 
 /// Totales del día (`GET /sales/today`).
@@ -45,10 +45,10 @@ class TodaySummary {
   final int salesCount;
 
   factory TodaySummary.fromJson(Map<String, dynamic> json) => TodaySummary(
-        total: (json['total'] as num).toDouble(),
-        totalProfit: (json['totalProfit'] as num).toDouble(),
-        salesCount: (json['salesCount'] as num).toInt(),
-      );
+    total: (json['total'] as num).toDouble(),
+    totalProfit: (json['totalProfit'] as num).toDouble(),
+    salesCount: (json['salesCount'] as num).toInt(),
+  );
 }
 
 /// Renglón que se manda al registrar una venta.
@@ -58,21 +58,27 @@ class ItemVenta {
   final String productId;
   final int quantity;
 
-  Map<String, dynamic> toJson() =>
-      {'productId': productId, 'quantity': quantity};
+  Map<String, dynamic> toJson() => {
+    'productId': productId,
+    'quantity': quantity,
+  };
 }
 
 /// Venta registrada (`POST /sales`); solo guardamos lo que la app muestra.
 class Sale {
-  const Sale({required this.id, required this.total, required this.totalProfit});
+  const Sale({
+    required this.id,
+    required this.total,
+    required this.totalProfit,
+  });
 
   final String id;
   final double total;
   final double totalProfit;
 
   factory Sale.fromJson(Map<String, dynamic> json) => Sale(
-        id: json['id'] as String,
-        total: (json['total'] as num).toDouble(),
-        totalProfit: (json['totalProfit'] as num).toDouble(),
-      );
+    id: json['id'] as String,
+    total: (json['total'] as num).toDouble(),
+    totalProfit: (json['totalProfit'] as num).toDouble(),
+  );
 }

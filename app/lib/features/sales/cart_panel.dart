@@ -28,7 +28,7 @@ class CartPanel extends StatelessWidget {
     final tema = Theme.of(context);
     return Material(
       color: tema.colorScheme.surfaceContainer,
-      elevation: 3,
+      elevation: AppSizes.elevacionPanel,
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
         child: Column(
@@ -40,13 +40,16 @@ class CartPanel extends StatelessWidget {
                 child: Text(
                   'Carrito vacío. Toca un producto para agregarlo.',
                   textAlign: TextAlign.center,
-                  style: tema.textTheme.bodyMedium
-                      ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+                  style: tema.textTheme.bodyMedium?.copyWith(
+                    color: tema.colorScheme.onSurfaceVariant,
+                  ),
                 ),
               )
             else
               ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 200),
+                constraints: const BoxConstraints(
+                  maxHeight: AppSizes.altoMaxLineasCarrito,
+                ),
                 child: ListView(
                   shrinkWrap: true,
                   children: [
@@ -66,8 +69,10 @@ class CartPanel extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Total', style: tema.textTheme.labelMedium),
-                      Text(formatoDinero(total),
-                          style: tema.textTheme.headlineSmall),
+                      Text(
+                        formatoDinero(total),
+                        style: tema.textTheme.headlineSmall,
+                      ),
                     ],
                   ),
                 ),
@@ -118,8 +123,9 @@ class _LineaTile extends StatelessWidget {
               ),
               Text(
                 formatoDinero(linea.producto.salePrice),
-                style: tema.textTheme.bodySmall
-                    ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+                style: tema.textTheme.bodySmall?.copyWith(
+                  color: tema.colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -143,7 +149,7 @@ class _LineaTile extends StatelessWidget {
           icon: const Icon(Icons.add_circle_outline),
         ),
         SizedBox(
-          width: 72,
+          width: AppSizes.anchoSubtotal,
           child: Text(
             formatoDinero(linea.subtotal),
             textAlign: TextAlign.right,

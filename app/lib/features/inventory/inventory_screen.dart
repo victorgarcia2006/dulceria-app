@@ -186,10 +186,7 @@ class _ProductoTile extends StatelessWidget {
                       value: _Accion.recibir,
                       child: Text('Recibir mercancía'),
                     ),
-                    PopupMenuItem(
-                      value: _Accion.editar,
-                      child: Text('Editar'),
-                    ),
+                    PopupMenuItem(value: _Accion.editar, child: Text('Editar')),
                     PopupMenuItem(
                       value: _Accion.descontinuar,
                       child: Text('Descontinuar'),

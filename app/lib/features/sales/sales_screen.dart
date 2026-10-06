@@ -141,8 +141,8 @@ class _SalesScreenState extends State<SalesScreen> {
         physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(AppSpacing.md),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          mainAxisExtent: 128,
+          maxCrossAxisExtent: AppSizes.anchoMaxTarjetaProducto,
+          mainAxisExtent: AppSizes.altoTarjetaProducto,
           crossAxisSpacing: AppSpacing.md,
           mainAxisSpacing: AppSpacing.md,
         ),
@@ -201,8 +201,9 @@ class _ProductoTile extends StatelessWidget {
                     const Spacer(),
                     Text(
                       formatoDinero(producto.salePrice),
-                      style: tema.textTheme.titleLarge
-                          ?.copyWith(color: tema.colorScheme.primary),
+                      style: tema.textTheme.titleLarge?.copyWith(
+                        color: tema.colorScheme.primary,
+                      ),
                     ),
                     if (!agotado)
                       Text(
@@ -232,8 +233,9 @@ class _ProductoTile extends StatelessWidget {
                     backgroundColor: tema.colorScheme.primary,
                     child: Text(
                       '$enCarrito',
-                      style: tema.textTheme.labelLarge
-                          ?.copyWith(color: tema.colorScheme.onPrimary),
+                      style: tema.textTheme.labelLarge?.copyWith(
+                        color: tema.colorScheme.onPrimary,
+                      ),
                     ),
                   ),
                 ),

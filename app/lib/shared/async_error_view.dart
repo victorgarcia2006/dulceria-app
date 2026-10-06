@@ -30,7 +30,11 @@ class AsyncErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.cloud_off, size: 48, color: tema.colorScheme.outline),
+            Icon(
+              Icons.cloud_off,
+              size: AppSizes.iconoGrande,
+              color: tema.colorScheme.outline,
+            ),
             const SizedBox(height: AppSpacing.md),
             Text(
               error == null ? 'Algo salió mal.' : mensajeDeError(error!),

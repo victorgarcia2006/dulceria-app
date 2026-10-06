@@ -31,11 +31,10 @@ class DulceriaApi {
     required double costo,
     required double precioVenta,
   }) async {
-    final json = await _client.post('/products', body: {
-      'name': nombre,
-      'costPrice': costo,
-      'salePrice': precioVenta,
-    });
+    final json = await _client.post(
+      '/products',
+      body: {'name': nombre, 'costPrice': costo, 'salePrice': precioVenta},
+    );
     return Product.fromJson(json as Map<String, dynamic>);
   }
 
@@ -46,11 +45,10 @@ class DulceriaApi {
     required double costo,
     required double precioVenta,
   }) async {
-    final json = await _client.patch('/products/$id', body: {
-      'name': nombre,
-      'costPrice': costo,
-      'salePrice': precioVenta,
-    });
+    final json = await _client.patch(
+      '/products/$id',
+      body: {'name': nombre, 'costPrice': costo, 'salePrice': precioVenta},
+    );
     return Product.fromJson(json as Map<String, dynamic>);
   }
 
@@ -66,11 +64,14 @@ class DulceriaApi {
     required int cantidad,
     required double costoUnitario,
   }) async {
-    final json = await _client.post('/purchases', body: {
-      'productId': productId,
-      'quantity': cantidad,
-      'unitCost': costoUnitario,
-    });
+    final json = await _client.post(
+      '/purchases',
+      body: {
+        'productId': productId,
+        'quantity': cantidad,
+        'unitCost': costoUnitario,
+      },
+    );
     return Product.fromJson(
       (json as Map<String, dynamic>)['product'] as Map<String, dynamic>,
     );

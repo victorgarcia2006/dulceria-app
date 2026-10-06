@@ -82,8 +82,9 @@ class _PurchaseFormSheetState extends State<PurchaseFormSheet> {
           Text(
             'Esta es la única forma de aumentar las existencias; nunca se editan directamente. '
             'El costo que escribas pasa a ser el costo actual del producto.',
-            style: tema.textTheme.bodyMedium
-                ?.copyWith(color: tema.colorScheme.onSurfaceVariant),
+            style: tema.textTheme.bodyMedium?.copyWith(
+              color: tema.colorScheme.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: AppSpacing.md),
           CampoCantidad(
