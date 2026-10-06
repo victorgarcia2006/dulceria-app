@@ -36,3 +36,10 @@ NestJS + TypeScript + MongoDB (Mongoose) + class-validator/class-transformer. Si
 - `npm run seed [-- archivo.json]` — carga `scripts/productos-reales.json` vía API.
 - TypeScript fijado en ^6: el CLI de Nest y ts-node no funcionan con TS 7.
 - Contrato de la API: `docs/api-contract.md`.
+
+## Frontend (`app/`, Flutter)
+- Flutter **3.47.6** estable (Dart 3.13.5). Estado con Provider, API con `http` (sin dio ni intl; el dinero se formatea a mano con `$` y 2 decimales).
+- Solo Android por ahora. URL de la API en `app/lib/core/api_client.dart` (`kApiBaseUrl`, `10.0.2.2` para emulador).
+- Alcance congelado: solo Hoy, Vender, Inventario. Texto visible en español natural; nunca la palabra "stock" (usar "existencias", "Quedan X", "Agotado", "Recibir mercancía", "Pocas existencias").
+- Comandos (desde `app/`): `flutter pub get`, `flutter analyze`, `flutter test`, `flutter run`, `flutter build apk --debug`.
+- En Windows, el build de Android necesita `JAVA_HOME` en un JDK 17+ (p. ej. el JBR de Android Studio); con JRE 8 `sdkmanager` falla.
