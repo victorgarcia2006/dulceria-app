@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'core/api_client.dart';
+import 'core/dulceria_api.dart';
 import 'core/theme.dart';
 import 'features/home/home_screen.dart';
 import 'features/inventory/inventory_screen.dart';
@@ -10,14 +10,14 @@ import 'features/sales/sales_screen.dart';
 class DulceriaApp extends StatelessWidget {
   const DulceriaApp({super.key, this.api});
 
-  /// Permite inyectar un cliente de prueba.
-  final ApiClient? api;
+  /// Permite inyectar un API de prueba.
+  final DulceriaApi? api;
 
   @override
   Widget build(BuildContext context) {
-    return Provider<ApiClient>(
-      create: (_) => api ?? ApiClient(),
-      dispose: (_, cliente) => cliente.close(),
+    return Provider<DulceriaApi>(
+      create: (_) => api ?? DulceriaApi(),
+      dispose: (_, api) => api.close(),
       child: MaterialApp(
         title: 'Dulcería',
         debugShowCheckedModeBanner: false,
